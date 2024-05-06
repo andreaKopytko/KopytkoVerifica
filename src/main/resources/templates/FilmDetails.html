@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Dettagli Film</title>
+</head>
+<body>
+    <div class="col-3">
+        <h4>Informazioni Film</h4>
+
+        <div>
+            <b>Codice: </b>
+            <span th:text="${Film.Codice}"></span>
+        </div>
+        <div>
+            <b>Titolo: </b>
+            <span th:text="${Film.Titolo}"></span>
+        </div>
+        <div>
+            <b>Genere: </b>
+            <span th:text="${Film.Genere}"></span>
+        </div>
+        <div>
+            <b>Anno di produzione: </b>
+            <span th:text="${Film.Anno}"></span>
+        </div>
+        <div>
+            <b>Valutazione: </b>
+            <span th:text="${Film.Voto}"></span>
+        </div>
+        <div> <!-- Button di ritorno a Homepage con la Collezione ed eliminazione film -->
+            <a class="btn btn-primary" th:href="@{/films}">Ritorna alla Home</a>
+            <a class="btn btn-danger">Elimina Film</a>
+        </div>
+    </div>
+</body>
+</html>

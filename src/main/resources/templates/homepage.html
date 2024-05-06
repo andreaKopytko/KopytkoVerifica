@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Homepage Film</title>
+</head>
+<body>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th class="col-3">Codice</th>
+            <th class="col-3">Titolo</th>
+            <th class="col-3">Genere</th>
+            <th class="col-1">Anno</th>
+            <th class="col-1">Voto</th>
+        </tr>
+        <tr th:each="f : ${Film}">
+            <td th:text="${f.Codice}"></td>
+            <td th:text="${f.Titolo}"></td>
+            <td th:text="${f.Genere}"></td>
+            <td th:text="${f.Anno}"></td>
+            <td th:text="${f.Voto}"></td>
+        </tr>
+    </table><br>
+
+    <div></div>
+        <a class="btn btn-primary" th:href="@{/films/nuovo}">Aggiungi Film</a>
+        <button class="btn btn-danger" role="alert">Cancella Collezione</button>
+    </div>
+</body>
+</html>

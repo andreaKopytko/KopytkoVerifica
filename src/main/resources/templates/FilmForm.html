@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Nuovo Film</title>
+</head>
+<body>
+    <h2>Nuovo Film</h2>
+    <div class="col-3">
+        <form method="post" th:action="@{/films/nuovo}" th:object="${Film}">
+
+            <div> <!-- Gestione inserimento del codice -->
+                <label>Codice</label>
+                <input th:field="*{Codice}" type="text">
+                <div th:if="${#fields.hasErrors('Codice')}">
+                    <span th:error="*{Codice}" class="text-danger"></span>
+                </div>
+            </div>
+            <div> <!-- Gestione inserimento del titolo -->
+                <label>Titolo</label>
+                <input th:field="*{Titolo}" type="text">
+                <div th:if="${#fields.hasErrors('Titolo')}">
+                    <span th:error="*{Titolo}" class="text-danger"></span>
+                </div>
+            </div>
+            <div> <!-- Gestione inserimento del genere con menù -->
+                <select th:field="*{Genere}" type="text">
+                    <option value="azione" name="azione">Azione</option>
+                    <option value="commedia" name="commedia">Commedia</option>
+                    <option value="sci-fi" name="sci-fi">Sci-fi</option>
+                    <option value="horror" name="horror">Horror</option>
+                    <option value="fantasy">Fantasy</option>
+                </select>
+            </div>
+            <div> <!-- Gestione inserimento dell'anno -->
+                <label>Anno di Produzione</label>
+                <input th:field="*{Anno}" type="number">
+                <div th:if="${#fields.hasErrors('Anno')}">
+                    <span th:error="*{Anno}" class="text-danger"></span>
+                </div>
+            </div>
+            <div>  <!-- Gestione inserimento della valutazione con menù -->
+                <select th:field="*{Voto}" type="number">
+                    <option value="1" name="1">★</option>
+                    <option value="2" name="2">★★</option>
+                    <option value="3" name="3">★★★</option>
+                    <option value="4" name="4">★★★★</option>
+                    <option value="5" name="5">★★★★★</option>
+                </select>
+            </div>
+
+            <div> <!-- Button di invio, reset e reindirizzamento a Home Page -->
+                <input class="btn btn-success" type="submit" value="Invia">
+                <input class="btn btn-danger" type="reset" value="Reimposta">
+                <a th:href="@{/films}" class="btn btn-primary">Vedi Collezione</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
